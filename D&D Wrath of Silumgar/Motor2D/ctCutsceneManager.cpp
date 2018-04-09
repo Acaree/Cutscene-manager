@@ -9,37 +9,13 @@ bool Move::Execute()
 {
 	bool ret = false;
 
-	if (actor->position.x == finalpos.x && actor->position.y == finalpos.y)
-	{
-		actor->animation = &actor->idle;
+	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
+		actor->position.x += move_speed;
+	}
+
+	else {
 		ret = true;
 	}
-	else {
-		if (actor->position.x < finalpos.x)
-		{
-			actor->animation = &actor->run_forward;
-			actor->position.x += 5;
-		}
-
-		else if (actor->position.x > finalpos.x)
-		{
-			actor->animation = &actor->run_forward;
-			actor->position.x -= 5;
-		}
-
-		if (actor->position.y < finalpos.y)
-		{
-			actor->animation = &actor->run_forward;
-			actor->position.y += 5;
-		}
-
-		else if (actor->position.y > finalpos.y)
-		{
-			actor->animation = &actor->run_forward;
-			actor->position.y -= 5;
-		}
-	}
-
 	return ret;
 }
 
@@ -47,21 +23,32 @@ bool Move::Execute()
 
 bool ctCutsceneManager::Update(float dt)
 {
-	TaskOrderer();
-
-	bool ret = false;
-	if (App->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
+	CutsceneAction* aux_CutScene = nullptr;
+	if (Executing_Cutscene == true)
 	{
-		if (current_CutsceneAction == nullptr && CutsceneQueue.size() != 0)
-		{
-			current_CutsceneAction = CutsceneQueue.front();
-			CutsceneQueue.pop();
+		if (CutsceneActions_Queue.front != nullptr){
+			aux_CutScene = CutsceneActions_Queue.front();
+			
+			while (aux_CutScene->start_time <= App->cutscene_manager->Cutscene_timer.Read()){
+				CutsceneActions_InProgress.push_back(aux_CutScene);
+				CutsceneActions_Queue.pop();
+				aux_CutScene = CutsceneActions_Queue.front();
+			}
+
+			}
+
+		if (CutsceneActions_InProgress.front != nullptr) {
+			for (CutsceneAction* it = CutsceneActions_InProgress.begin(); it != CutsceneActions_InProgress.end(); it++) {
+				if(it->end_time <= App->cutscene_manager->Cutscene_timer.Read())
+				it->Execute();
+				else {
+					CutsceneActions_InProgress.remove(it);
+				}
+			}
 		}
 	}
 
-	ret = DoTask();
-
-	return ret;
+	return true;
 }
 
 bool ctCutsceneManager::Start()
@@ -71,9 +58,9 @@ bool ctCutsceneManager::Start()
 
 bool ctCutsceneManager::CleanUp()
 {
-	while (CutsceneQueue.size() != 0)
+	while (CutsceneActions_Queue.size() != 0)
 	{
-		CutsceneQueue.pop();
+		CutsceneActions_Queue.pop();
 	}
 	return true;
 }
@@ -96,7 +83,7 @@ bool ctCutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 	return true;
 }
 
-bool ctCutsceneManager::DoTask()
+void ctCutsceneManager::ExecuteCutscene(Cutscene_code cutscene)
 {
 	/*
 	if (aux_task != nullptr)
@@ -114,11 +101,6 @@ bool ctCutsceneManager::DoTask()
 		}
 	}
 	*/
-	return true;
+
 }
 
-bool ctCutsceneManager::TaskOrderer()
-{
-
-	return true;
-}
