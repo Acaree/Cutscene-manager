@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cleric.cpp" />
+    <ClCompile Include="ctCutsceneManager.cpp" />
     <ClCompile Include="ctSkillTree.cpp" />
     <ClCompile Include="ctApp.cpp" />
     <ClCompile Include="ctAudio.cpp" />
@@ -77,6 +78,7 @@
     <ClInclude Include="ctTimer.h" />
     <ClInclude Include="ctWindow.h" />
     <ClInclude Include="ctWorldMap.h" />
+    <ClInclude Include="ctCutsceneManager.h" />
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="Elf.h" />
     <ClInclude Include="Entity.h" />

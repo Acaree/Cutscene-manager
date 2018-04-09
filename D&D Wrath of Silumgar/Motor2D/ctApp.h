@@ -25,6 +25,7 @@ class ctFonts;
 class ctTaskManager;
 class ctFadeToBlack;
 class ctSkillTree;
+class ctCutsceneManager;
 
 class ctApp
 {
@@ -99,6 +100,7 @@ public:
 	ctTaskManager*		task_manager = nullptr;
 	ctFadeToBlack*		fadeToBlack = nullptr;
 	ctSkillTree*		skill_tree = nullptr;
+	ctCutsceneManager*	cutscene_manager = nullptr;
 
 	bool				cap_state = false;
 

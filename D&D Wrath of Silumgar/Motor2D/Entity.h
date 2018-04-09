@@ -102,6 +102,7 @@ public:
 	EntityType type = EntityType::NO_TYPE;
 	bool to_destroy = false;
 	bool flip_texture = false;
+	int move_speed;
 	
 
 public:

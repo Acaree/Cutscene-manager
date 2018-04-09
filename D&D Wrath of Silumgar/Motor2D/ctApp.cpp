@@ -21,6 +21,7 @@
 #include "ctTaskManager.h"
 #include "ctFadeToBlack.h"
 #include "ctSkillTree.h"
+#include "ctCutsceneManager.h"
 
 
 // Constructor
@@ -44,6 +45,7 @@ ctApp::ctApp(int argc, char* args[]) : argc(argc), args(args)
 	task_manager = new ctTaskManager();
 	fadeToBlack = new ctFadeToBlack();
 	skill_tree = new ctSkillTree();
+	cutscene_manager = new ctCutsceneManager();
 	
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -62,6 +64,7 @@ ctApp::ctApp(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(task_manager);
 	AddModule(fadeToBlack);
 	AddModule(skill_tree);
+	AddModule(cutscene_manager);
 
 	// render last to swap buffer
 	AddModule(render);
