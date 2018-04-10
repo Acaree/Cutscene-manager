@@ -23,29 +23,16 @@ bool Move::Execute()
 
 bool ctCutsceneManager::Update(float dt)
 {
-	CutsceneAction* aux_CutScene = nullptr;
-	if (Executing_Cutscene == true)
-	{
-		if (CutsceneActions_Queue.front != nullptr){
-			aux_CutScene = CutsceneActions_Queue.front();
-			
-			while (aux_CutScene->start_time <= App->cutscene_manager->Cutscene_timer.Read()){
-				CutsceneActions_InProgress.push_back(aux_CutScene);
-				CutsceneActions_Queue.pop();
-				aux_CutScene = CutsceneActions_Queue.front();
-			}
+	
+	ExecuteCutscene();
+	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN) {
 
-			}
+		CutsceneActions_Queue.push(new Move(0, 2000, (Entity*) App->entities->GetCleric(), 5));
 
-		if (CutsceneActions_InProgress.front != nullptr) {
-			for (CutsceneAction* it = CutsceneActions_InProgress.begin(); it != CutsceneActions_InProgress.end(); it++) {
-				if(it->end_time <= App->cutscene_manager->Cutscene_timer.Read())
-				it->Execute();
-				else {
-					CutsceneActions_InProgress.remove(it);
-				}
-			}
-		}
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
+		Executing_Cutscene = true;
 	}
 
 	return true;
@@ -83,24 +70,39 @@ bool ctCutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 	return true;
 }
 
-void ctCutsceneManager::ExecuteCutscene(Cutscene_code cutscene)
+void ctCutsceneManager::ExecuteCutscene()
 {
-	/*
-	if (aux_task != nullptr)
+	CutsceneAction* aux_CutScene = nullptr;
+	if (Executing_Cutscene == true)
 	{
-		//TODO 3 If the task is finished, pop the next task until the queue is empty
-		if (aux_task->Execute())
-		{
-			if (TaskQueue.size() != 0)
-			{
-				aux_task = TaskQueue.front();
-				TaskQueue.pop();
+		if (CutsceneActions_Queue.front() != nullptr) {
+			aux_CutScene = CutsceneActions_Queue.front();
+
+			//aux_CutScene->start_time <= App->cutscene_manager->Cutscene_timer.Read()
+
+			while (aux_CutScene != nullptr) {
+				if (aux_CutScene->start_time <= App->cutscene_manager->Cutscene_timer.Read()) {
+					CutsceneActions_InProgress.push_back(aux_CutScene);
+					CutsceneActions_Queue.pop();
+					aux_CutScene = nullptr;
+					if (CutsceneActions_Queue.size() != 0)
+						aux_CutScene = CutsceneActions_Queue.front();
+				}
 			}
-			else aux_task = nullptr;
 
 		}
+
+		if (CutsceneActions_InProgress.front() != nullptr) {
+			for (std::list<CutsceneAction*>::iterator it = CutsceneActions_InProgress.begin(); it != CutsceneActions_InProgress.end(); it++) {
+				if ((*it)->end_time <= App->cutscene_manager->Cutscene_timer.Read()) {
+					(*it)->Execute();
+				}
+				else {
+					CutsceneActions_InProgress.remove((*it));
+				}
+			}
+		}
 	}
-	*/
 
 }
 

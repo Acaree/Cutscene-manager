@@ -59,16 +59,15 @@ public:
 	bool CleanUp();
 
 	bool ChargeCutscene(Cutscene_code cutscene);
-	void ExecuteCutscene(Cutscene_code cutscene);
+	void ExecuteCutscene();
 	ctTimer Cutscene_timer;
 
 
 private:
-	//TODO 1 Create a queue of tasks
+
 	std::queue<CutsceneAction*> CutsceneActions_Queue;
 	std::list<CutsceneAction*> CutsceneActions_InProgress;
 	bool Executing_Cutscene = false;
-	//ctTimer Cutscene_timer;
 
 public:
 	
