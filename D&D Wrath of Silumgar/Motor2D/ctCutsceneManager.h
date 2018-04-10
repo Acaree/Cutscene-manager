@@ -61,12 +61,13 @@ public:
 	bool ChargeCutscene(Cutscene_code cutscene);
 	void ExecuteCutscene();
 	ctTimer Cutscene_timer;
+	std::list<CutsceneAction*> CutsceneActions_InProgress;
 
 
 private:
 
 	std::queue<CutsceneAction*> CutsceneActions_Queue;
-	std::list<CutsceneAction*> CutsceneActions_InProgress;
+	
 	bool Executing_Cutscene = false;
 
 public:

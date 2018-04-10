@@ -8,6 +8,7 @@
 #include "ctWindow.h"
 #include "ctEntities.h"
 #include "ctTaskManager.h"
+#include "ctCutsceneManager.h"
 
 #include "ctCombat.h"
 #include "ctWorldMap.h"
@@ -85,6 +86,12 @@ bool ctCombat::PreUpdate()
 // Called each loop iteration
 bool ctCombat::Update(float dt)
 {
+
+
+	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN) {
+
+		App->cutscene_manager->CutsceneActions_InProgress.push_back(new Move(1000, 2000, App->entities->GetCleric(), 5));
+	}
 	
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && App->fadeToBlack->FadeIsOver())
 		App->fadeToBlack->FadeToBlackBetweenModules(this, App->world_map, 1.0f);
