@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<cutscenes>
+  <cutscene1>
+
+    <cutscene_action name="move"/>
+    
+  </cutscene1>
+</cutscenes>

@@ -53,18 +53,10 @@ bool ctCutsceneManager::CleanUp()
 
 bool ctCutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 {
-	/*
-	pugi::xml_document	config_file;
-	pugi::xml_node* node = &App->LoadEntities(config_file);
-	node = &node->child("heroes").child("cleric");
-
-	//todo get the stats
-
-	for (pugi::xml_node animations = node->child("animations").child("animation"); animations && ret; animations = animations.next_sibling("animation"))
-	{
-		CutsceneQueue.push(task);
-	}
-	*/
+	pugi::xml_document track_file;
+	pugi::xml_parse_result result = track_file.load_file("cutscene.xml");
+	pugi::xml_node node = track_file.child("cutscenes").child("cutscene1");
+	
 	return true;
 }
 
