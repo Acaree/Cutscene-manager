@@ -90,7 +90,7 @@ bool ctCombat::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN) {
 
-		App->cutscene_manager->CutsceneActions_InProgress.push_back(new Move(1000, 2000, App->entities->GetCleric(), 5));
+		App->cutscene_manager->ChargeCutscene(CUTSCENE_1);
 	}
 	
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && App->fadeToBlack->FadeIsOver())

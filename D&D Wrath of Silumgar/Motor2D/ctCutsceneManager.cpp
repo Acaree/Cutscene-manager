@@ -55,7 +55,21 @@ bool ctCutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 {
 	pugi::xml_document track_file;
 	pugi::xml_parse_result result = track_file.load_file("cutscene.xml");
-	pugi::xml_node node = track_file.child("cutscenes").child("cutscene1");
+	pugi::xml_node cutscene_node;
+	switch (cutscene) {
+	case CUTSCENE_1:
+		cutscene_node = track_file.child("cutscenes").child("cutscene1").child("cutscene_action");
+		break;
+	default:
+		break;
+	}
+	
+	while (cutscene_node != nullptr) {
+		if (cutscene_node.attribute("name").as_int() == 1) {
+			App->cutscene_manager->CutsceneActions_InProgress.push_back(new Move(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), (Entity*)App->entities->GetCleric(), cutscene_node.attribute("speed").as_int()));
+		}
+		cutscene_node = cutscene_node.next_sibling();
+	}
 	
 	return true;
 }

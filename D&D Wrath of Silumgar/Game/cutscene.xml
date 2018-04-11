@@ -3,7 +3,7 @@
 <cutscenes>
   <cutscene1>
 
-    <cutscene_action name="move"/>
+    <cutscene_action name="1" start_time ="1000" end_time="2000" speed="5"/>
     
   </cutscene1>
 </cutscenes>
