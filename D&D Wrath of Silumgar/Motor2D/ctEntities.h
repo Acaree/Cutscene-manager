@@ -8,6 +8,7 @@
 #include <queue>
 struct Stats;
 enum ComboType;
+enum cutscene_actors;
 
 class Entity;
 class Cleric;
@@ -75,6 +76,8 @@ public:
 	Owlbear* GetOwlbear()const;
 
 	MiniHeroes* GetMiniheroes()const;
+
+	Entity* GetActor(int actor_code);
 
 	std::vector<Entity*> entities;
 

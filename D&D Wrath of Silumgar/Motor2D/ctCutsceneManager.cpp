@@ -65,9 +65,7 @@ bool ctCutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 	}
 	
 	while (cutscene_node != nullptr) {
-		if (cutscene_node.attribute("name").as_int() == 1) {
-			App->cutscene_manager->CutsceneActions_InProgress.push_back(new Move(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), (Entity*)App->entities->GetCleric(), cutscene_node.attribute("speed").as_int()));
-		}
+		App->cutscene_manager->CutsceneActions_InProgress.push_back(new Move(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), App->entities->GetActor(cutscene_node.attribute("actor").as_int()), cutscene_node.attribute("speed").as_int()));
 		cutscene_node = cutscene_node.next_sibling();
 	}
 	

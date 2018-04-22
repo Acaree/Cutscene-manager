@@ -389,3 +389,19 @@ MiniHeroes* ctEntities::GetMiniheroes() const {
 
 }
 
+Entity* ctEntities::GetActor(int actor_code) {
+
+	switch (actor_code) {
+	case CLERIC:
+		return GetCleric();
+		break;
+	case WARRIOR:
+		return GetWarrior();
+		break;
+	default:
+		return nullptr;
+		break;
+	}
+
+}
+

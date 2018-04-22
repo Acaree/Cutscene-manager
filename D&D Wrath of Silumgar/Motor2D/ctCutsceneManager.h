@@ -11,6 +11,8 @@
 
 class Entity;
 
+enum EntityType;
+
 enum Cutscene_code
 {
 	CUTSCENE_1
