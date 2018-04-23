@@ -23,6 +23,24 @@ void ctTimer::SetStartTime(uint32 time) {
 	started_at = SDL_GetTicks() + time;
 }
 
+
+void ctTimer::Stop()
+{
+	running = false;
+	stopped_at = SDL_GetTicks();
+}
+
+void ctTimer::Continue()
+{
+	running = true;
+	if (started_at != NULL) {
+		started_at += SDL_GetTicks() - stopped_at;
+	}
+	else {
+		Start();
+	}
+}
+
 // ---------------------------------------------
 uint32 ctTimer::Read() const
 {

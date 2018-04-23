@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--cutscene action codes: 1->MoveX 2->MoveY-->
+
 <cutscenes>
   <cutscene1>
 
-    <cutscene_action actor="0" start_time ="1000" end_time="2000" speed="5"/>
-    <cutscene_action actor="3" start_time ="1000" end_time="2000" speed="5"/>
+    <cutscene_action cutscene_action ="0" actor="0" start_time ="1000" end_time="2000" speed="5"/>
+    <cutscene_action cutscene_action ="1" actor="3" start_time ="1000" end_time="2000" speed="5"/>
     
   </cutscene1>
 </cutscenes>

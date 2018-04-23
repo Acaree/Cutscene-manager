@@ -18,6 +18,7 @@ enum Cutscene_code
 	CUTSCENE_1
 };
 
+
 class CutsceneAction
 {
 public:
@@ -35,14 +36,29 @@ protected:
 
 };
 
-class Move : public CutsceneAction
+class MoveX : public CutsceneAction
 {
 public:
-	Move(uint32 start_time, uint32 end_time,Entity* actor, uint32 speed) : CutsceneAction(start_time, end_time) {
+	MoveX(uint32 start_time, uint32 end_time,Entity* actor, uint32 speed) : CutsceneAction(start_time, end_time) {
 		this->actor = actor;
 		speed = move_speed;
 	};
-	~Move() {};
+	~MoveX() {};
+
+	bool Execute();
+private:
+	Entity* actor = nullptr;
+	int move_speed;
+};
+
+class MoveY : public CutsceneAction
+{
+public:
+	MoveY(uint32 start_time, uint32 end_time, Entity* actor, uint32 speed) : CutsceneAction(start_time, end_time) {
+		this->actor = actor;
+		speed = move_speed;
+	};
+	~MoveY() {};
 
 	bool Execute();
 private:
@@ -63,17 +79,12 @@ public:
 	bool ChargeCutscene(Cutscene_code cutscene);
 	void ExecuteCutscene();
 	ctTimer Cutscene_timer;
-	std::list<CutsceneAction*> CutsceneActions_InProgress;
+	std::list<CutsceneAction*> CutsceneActions;
 
 
 private:
-
-	std::queue<CutsceneAction*> CutsceneActions_Queue;
 	
 	bool Executing_Cutscene = false;
-
-public:
-	
 
 };
 
