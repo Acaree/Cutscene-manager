@@ -3,6 +3,7 @@
 #include "ctEntities.h"
 #include "ctRender.h"
 #include "ctInput.h"
+#include "ctGui.h"
 
 
 
@@ -10,7 +11,7 @@ bool MoveX::Execute()
 {
 	bool ret = false;
 
-	if (uint32 i = App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
+	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
 		actor->position.x += 5;
 	}
 
@@ -24,13 +25,31 @@ bool MoveY::Execute()
 {
 	bool ret = false;
 
-	if (uint32 i = App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
+	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
 		actor->position.y += 5;
 	}
 
 	else {
 		ret = true;
 	}
+	return ret;
+}
+
+bool DialogBox::Execute()
+{
+	bool ret = false;
+
+	if (first_iteration) {
+		Background = App->gui->AddUIImage(0, 300, { 570,107,100,100 });
+		Text = App->gui->AddUITextBox(20, 20, 15, 500, "adwsqgfqg", { 255,255,255,255 }, Background, Second_Font);
+		first_iteration = false;
+	}
+
+	if (App->cutscene_manager->Cutscene_timer.Read() > end_time) {
+		ret = true;
+	}
+
+	ret = true;
 	return ret;
 }
 
