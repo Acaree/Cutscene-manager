@@ -35,13 +35,13 @@ bool MoveY::Execute()
 	return ret;
 }
 
-bool DialogBox::Execute()
+bool CutsceneDialog::Execute()
 {
 	bool ret = false;
 
 	if (first_iteration) {
-		Background = App->gui->AddUIImage(0, 300, { 570,107,100,100 });
-		Text = App->gui->AddUITextBox(20, 20, 15, 500, "adwsqgfqg", { 255,255,255,255 }, Background, Second_Font);
+		Background = App->gui->AddUIImage(0, 100, { 570,107,100,100 });
+		Text = App->gui->AddUITextBox(0, 100, 15, 500, "adwsqgfqg", {0,0,0,255 }, Background, Second_Font);
 		first_iteration = false;
 	}
 
@@ -49,8 +49,13 @@ bool DialogBox::Execute()
 		ret = true;
 	}
 
-	ret = true;
 	return ret;
+}
+
+CutsceneDialog::~CutsceneDialog() {
+
+	App->gui->DeleteUIElement(*Text);
+	App->gui->DeleteUIElement(*Background);
 }
 
 
@@ -103,6 +108,10 @@ bool ctCutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 		if (action == 1) {
 			App->cutscene_manager->CutsceneActions.push_back(new MoveY(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), App->entities->GetActor(cutscene_node.attribute("actor").as_int()), cutscene_node.attribute("speed").as_int()));
 		}
+
+		if (action == 2) {
+			App->cutscene_manager->CutsceneActions.push_back(new CutsceneDialog(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int()));
+		}
 		cutscene_node = cutscene_node.next_sibling();
 	}
 	
@@ -122,6 +131,7 @@ void ctCutsceneManager::ExecuteCutscene()
 					if ((*it)->Execute()) {
 
 						CutsceneActions.remove((*it));
+						(*it)->~CutsceneAction();
 					}
 				}
 			}

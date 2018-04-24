@@ -66,12 +66,11 @@ private:
 	int move_speed;
 };
 
-class DialogBox : public CutsceneAction
+class CutsceneDialog : public CutsceneAction
 {
 public:
-	DialogBox(uint32 start_time, uint32 end_time) : CutsceneAction(start_time, end_time) {
-	};
-	~DialogBox() {};
+	CutsceneDialog(uint32 start_time, uint32 end_time) : CutsceneAction(start_time, end_time) {};
+	~CutsceneDialog();
 
 	bool Execute();
 private:
