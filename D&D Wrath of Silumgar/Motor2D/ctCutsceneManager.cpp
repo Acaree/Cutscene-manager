@@ -35,6 +35,34 @@ bool MoveY::Execute()
 	return ret;
 }
 
+bool MoveCameraX::Execute()
+{
+	bool ret = false;
+
+	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
+		App->render->camera.x += 5;
+	}
+
+	else {
+		ret = true;
+	}
+	return ret;
+}
+
+bool MoveCameraY::Execute()
+{
+	bool ret = false;
+
+	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
+		App->render->camera.y += 5;
+	}
+
+	else {
+		ret = true;
+	}
+	return ret;
+}
+
 bool CutsceneDialog::Execute()
 {
 	bool ret = false;
@@ -111,6 +139,14 @@ bool ctCutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 
 		if (action == 2) {
 			App->cutscene_manager->CutsceneActions.push_back(new CutsceneDialog(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int()));
+		}
+
+		if (action == 3) {
+			//App->cutscene_manager->CutsceneActions.push_back(new MoveCameraX(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("speed").as_int()));
+		}
+
+		if (action == 4) {
+			App->cutscene_manager->CutsceneActions.push_back(new MoveCameraY(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("speed").as_int()));
 		}
 		cutscene_node = cutscene_node.next_sibling();
 	}

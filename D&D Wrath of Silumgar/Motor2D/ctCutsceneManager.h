@@ -66,6 +66,33 @@ private:
 	int move_speed;
 };
 
+
+class MoveCameraX : public CutsceneAction
+{
+public:
+	MoveCameraX(uint32 start_time, uint32 end_time, Entity* actor, uint32 speed) : CutsceneAction(start_time, end_time) {
+		speed = move_speed;
+	};
+	~MoveCameraX() {};
+
+	bool Execute();
+private:
+	int move_speed;
+};
+
+class MoveCameraY : public CutsceneAction
+{
+public:
+	MoveCameraY(uint32 start_time, uint32 end_time, uint32 speed) : CutsceneAction(start_time, end_time) {
+		speed = move_speed;
+	};
+	~MoveCameraY() {};
+
+	bool Execute();
+private:
+	int move_speed;
+};
+
 class CutsceneDialog : public CutsceneAction
 {
 public:
