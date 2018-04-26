@@ -2,9 +2,10 @@
 #include "j1Render.h"
 #include "j1Entities.h"
 #include "j1Textures.h"
-//#include "Entity.h"
+#include "Entity.h"
 #include "j1Window.h"
 
+#include "PKMTrainer.h"
 
 /*
 #include "Cleric.h"
@@ -117,15 +118,14 @@ bool j1Entities::CleanUp()
 bool j1Entities::SpawnEntity(int x, int y, EntityType type)
 {
 	// find room for the new entity
-	//bool ret = false;
+	bool ret = false;
 
 	switch (type)
 	{
 	case PKM_TRAINER: {
-		//MiniHeroes* miniheroes = new MiniHeroes(x, y, MINIHEROES);
-		//entities.push_back(miniheroes);
-
-		//ret = true;
+		PKMTrainer* trainer = new PKMTrainer(x, y);
+		entities.push_back(trainer);
+		ret = true;
 		break;
 	}
 
@@ -134,7 +134,7 @@ bool j1Entities::SpawnEntity(int x, int y, EntityType type)
 	}
 
 	
-	bool ret = true;
+	
 	return ret;
 }
 

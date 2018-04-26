@@ -28,7 +28,7 @@ protected:
 
 public:
 	fPoint position;
-	ctAnimation* animation = nullptr;
+	ctAnimation* curr_animation = nullptr;
 	EntityType type;
 
 	bool to_destroy = false;

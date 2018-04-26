@@ -52,6 +52,9 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Desenvolupament  ========\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="PKMTrainer.cpp">
+      <Filter>Desenvolupament  ========\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -124,6 +127,9 @@
       <Filter>Desenvolupament  ========\Tools</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
+      <Filter>Desenvolupament  ========\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PKMTrainer.h">
       <Filter>Desenvolupament  ========\Entities</Filter>
     </ClInclude>
   </ItemGroup>

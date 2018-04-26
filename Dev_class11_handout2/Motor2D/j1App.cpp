@@ -8,6 +8,7 @@
 #include "j1Input.h"
 #include "j1Render.h"
 #include "j1Textures.h"
+#include "j1Entities.h"
 #include "j1Audio.h"
 #include "j1Scene.h"
 #include "j1Map.h"
@@ -27,6 +28,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	audio = new j1Audio();
 	scene = new j1Scene();
 	map = new j1Map();
+	entities = new j1Entities();
 	font = new j1Fonts();
 	gui = new j1Gui();
 
@@ -39,10 +41,8 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(map);
 	AddModule(font);
 	AddModule(gui);
-
-	// scene last
 	AddModule(scene);
-
+	AddModule(entities);
 	// render last to swap buffer
 	AddModule(render);
 
@@ -207,8 +207,8 @@ void j1App::FinishUpdate()
 	uint32 frames_on_last_update = prev_last_sec_frame_count;
 
 	static char title[256];
-	sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %u Last sec frames: %i Last dt: %.3f Time since startup: %.3f Frame Count: %lu ",
-			  avg_fps, last_frame_ms, frames_on_last_update, dt, seconds_since_startup, frame_count);
+	sprintf_s(title, 256, "Camera x %i  y %i ",
+			  App->render->camera.x, App->render->camera.y);
 	App->win->SetTitle(title);
 
 	if(capped_ms > 0 && last_frame_ms < capped_ms)

@@ -6,6 +6,7 @@
 #include "j1Audio.h"
 #include "j1Render.h"
 #include "j1Window.h"
+#include "j1Entities.h"
 #include "j1Map.h"
 #include "j1Gui.h"
 #include "j1Scene.h"
@@ -35,7 +36,7 @@ bool j1Scene::Start()
 	App->map->Load("litleroot_town.tmx");
 	debug_tex = App->tex->Load("maps/litleroot_town_texture.png");
 
-	
+	App->entities->SpawnEntity(0,0,PKM_TRAINER);
 
 	return true;
 }
