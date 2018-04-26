@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--cutscene action codes: 0->MoveX 1->MoveY  2->DialogBox  3->MoveCameraX  4->MoveCameraY-->
+
+<cutscenes>
+  <cutscene1>
+
+  
+   
+    <cutscene_action cutscene_action ="3" start_time ="1000" end_time="2000" speed="5"/>
+    <cutscene_action cutscene_action ="4" start_time ="1000" end_time="2000" speed="5"/>
+    
+  </cutscene1>
+</cutscenes>

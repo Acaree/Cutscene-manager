@@ -18,6 +18,7 @@ class j1Map;
 class j1Entities;
 class j1Fonts;
 class j1Gui;
+class j1CutsceneManager;
 
 class j1App
 {
@@ -92,6 +93,7 @@ public:
 	j1Entities*			entities = NULL;
 	j1Fonts*			font = NULL;
 	j1Gui*				gui = NULL;
+	j1CutsceneManager*	cutscene_manager= NULL;
 
 private:
 

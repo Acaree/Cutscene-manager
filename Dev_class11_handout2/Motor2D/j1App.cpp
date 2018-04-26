@@ -10,6 +10,7 @@
 #include "j1Textures.h"
 #include "j1Entities.h"
 #include "j1Audio.h"
+#include "j1CutsceneManager.h"
 #include "j1Scene.h"
 #include "j1Map.h"
 #include "j1Fonts.h"
@@ -31,6 +32,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	entities = new j1Entities();
 	font = new j1Fonts();
 	gui = new j1Gui();
+	cutscene_manager = new j1CutsceneManager();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -41,6 +43,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(map);
 	AddModule(font);
 	AddModule(scene);
+	AddModule(cutscene_manager);
 	AddModule(entities);
 	AddModule(gui);
 	// render last to swap buffer
