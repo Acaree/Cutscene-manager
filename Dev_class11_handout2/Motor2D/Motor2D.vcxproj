@@ -96,6 +96,7 @@
     <ClCompile Include="PugiXml\src\pugixml.cpp" />
     <ClCompile Include="UiElement.cpp" />
     <ClCompile Include="UiImage.cpp" />
+    <ClCompile Include="UiLabel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ctAnimation.h" />
@@ -125,6 +126,7 @@
     <ClInclude Include="PugiXml\src\pugixml.hpp" />
     <ClInclude Include="UiElement.h" />
     <ClInclude Include="UiImage.h" />
+    <ClInclude Include="UiLabel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

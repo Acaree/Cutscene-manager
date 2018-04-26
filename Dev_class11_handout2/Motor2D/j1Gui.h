@@ -4,6 +4,9 @@
 #include "j1Module.h"
 #include "UiElement.h"
 #include "UiImage.h"
+#include "UiLabel.h"
+#include "j1Fonts.h"
+
 
 #include <vector>
 
@@ -43,7 +46,7 @@ public:
 	SDL_Texture* GetAtlas() const;
 
 	UIImage* AddImage(iPoint, SDL_Rect, SDL_Texture*, j1Module*, bool);
-
+	UILabel* AddLabel(iPoint position, char* text, SDL_Color color, _TTF_Font* font, j1Module* listener, bool dragable, uint wrap_length);
 private:
 
 	SDL_Texture* atlas;

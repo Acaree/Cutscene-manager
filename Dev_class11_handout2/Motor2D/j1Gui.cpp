@@ -85,3 +85,13 @@ UIImage* j1Gui::AddImage(iPoint position, SDL_Rect rect, SDL_Texture* texture, j
 	UiElement.push_back((UIElement*)newImage);
 	return newImage;
 }
+
+UILabel* j1Gui::AddLabel(iPoint position, char* text, SDL_Color color, _TTF_Font* font, j1Module* listener, bool dragable, uint wrap_length)
+{
+	SDL_Texture* tex = App->font->Print(text, color, font);
+	uint width = 0,height = 0;
+	App->tex->GetSize(tex,width,height);
+	UILabel* newLabel = new UILabel(position, tex, {0,0,(int)width,(int)height}, ElementType::LabelElement, listener, dragable);
+	UiElement.push_back((UIElement*)newLabel);
+	return newLabel;
+}

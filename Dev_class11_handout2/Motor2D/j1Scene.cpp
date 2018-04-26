@@ -38,6 +38,7 @@ bool j1Scene::Start()
 
 	App->entities->SpawnEntity(0,0,PKM_TRAINER);
 	App->gui->AddImage({ 0,0 }, { 0,0,200,40 }, App->gui->GetAtlas(), this, false);
+	App->gui->AddLabel({ 0,0 }, "pene jajajadwgwefgryt brtrtyja", { 0,0,0,0 }, App->font->default, this, false, 20);
 
 	return true;
 }
