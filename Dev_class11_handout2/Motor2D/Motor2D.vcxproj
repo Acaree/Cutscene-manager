@@ -94,6 +94,8 @@
     <ClCompile Include="j1Window.cpp" />
     <ClCompile Include="PKMTrainer.cpp" />
     <ClCompile Include="PugiXml\src\pugixml.cpp" />
+    <ClCompile Include="UiElement.cpp" />
+    <ClCompile Include="UiImage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ctAnimation.h" />
@@ -121,6 +123,8 @@
     <ClInclude Include="PKMTrainer.h" />
     <ClInclude Include="PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="PugiXml\src\pugixml.hpp" />
+    <ClInclude Include="UiElement.h" />
+    <ClInclude Include="UiImage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

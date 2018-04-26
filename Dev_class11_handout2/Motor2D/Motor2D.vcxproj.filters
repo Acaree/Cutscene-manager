@@ -55,6 +55,12 @@
     <ClCompile Include="PKMTrainer.cpp">
       <Filter>Desenvolupament  ========\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="UiElement.cpp">
+      <Filter>Desenvolupament  ========\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UiImage.cpp">
+      <Filter>Desenvolupament  ========\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -132,6 +138,12 @@
     <ClInclude Include="PKMTrainer.h">
       <Filter>Desenvolupament  ========\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="UiElement.h">
+      <Filter>Desenvolupament  ========\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UiImage.h">
+      <Filter>Desenvolupament  ========\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Programacio 2 ===========">
@@ -154,6 +166,9 @@
     </Filter>
     <Filter Include="Desenvolupament  ========\Entities">
       <UniqueIdentifier>{7b93a726-d6a7-4f82-9c45-a36e69a12b1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Desenvolupament  ========\GUI">
+      <UniqueIdentifier>{5b944c8a-e462-4d6d-bb32-d37191d735d8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

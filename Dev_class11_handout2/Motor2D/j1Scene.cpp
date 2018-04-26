@@ -37,6 +37,7 @@ bool j1Scene::Start()
 	debug_tex = App->tex->Load("maps/litleroot_town_texture.png");
 
 	App->entities->SpawnEntity(0,0,PKM_TRAINER);
+	App->gui->AddImage({ 0,0 }, { 0,0,200,40 }, App->gui->GetAtlas(), this, false);
 
 	return true;
 }

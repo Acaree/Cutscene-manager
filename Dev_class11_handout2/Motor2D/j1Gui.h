@@ -2,8 +2,11 @@
 #define __j1GUI_H__
 
 #include "j1Module.h"
+#include "UiElement.h"
+#include "UiImage.h"
 
-#define CURSOR_WIDTH 2
+#include <vector>
+
 
 // TODO 1: Create your structure of classes
 
@@ -26,6 +29,8 @@ public:
 	// Called before all Updates
 	bool PreUpdate();
 
+	bool Update(float);
+
 	// Called after all Updates
 	bool PostUpdate();
 
@@ -35,12 +40,15 @@ public:
 	// TODO 2: Create the factory methods
 	// Gui creation functions
 
-	const SDL_Texture* GetAtlas() const;
+	SDL_Texture* GetAtlas() const;
+
+	UIImage* AddImage(iPoint, SDL_Rect, SDL_Texture*, j1Module*, bool);
 
 private:
 
 	SDL_Texture* atlas;
 	p2SString atlas_file_name;
+	std::vector<UIElement*> UiElement;
 };
 
 #endif // __j1GUI_H__

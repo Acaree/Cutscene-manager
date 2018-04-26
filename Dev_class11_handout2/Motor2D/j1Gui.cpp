@@ -22,17 +22,33 @@ bool j1Gui::Awake(pugi::xml_node& conf)
 	LOG("Loading GUI atlas");
 	bool ret = true;
 
-	atlas_file_name = conf.child("atlas").attribute("file").as_string("");
-
 	return ret;
 }
 
 // Called before the first frame
 bool j1Gui::Start()
 {
-	atlas = App->tex->Load(atlas_file_name.GetString());
+	atlas = App->tex->Load("gui/atlas.png");
 
 	return true;
+}
+
+
+bool j1Gui::Update(float dt)
+{
+	for (uint i = 0; i < UiElement.size(); i++)
+	{
+		if (UiElement[i] != nullptr)
+		{
+			UiElement[i]->Update(dt);
+			UiElement[i]->Draw(atlas);
+		}
+	}
+
+
+
+	return true;
+
 }
 
 // Update all guis
@@ -56,10 +72,16 @@ bool j1Gui::CleanUp()
 }
 
 // const getter for atlas
-const SDL_Texture* j1Gui::GetAtlas() const
+SDL_Texture* j1Gui::GetAtlas() const
 {
 	return atlas;
 }
 
 // class Gui ---------------------------------------------------
 
+UIImage* j1Gui::AddImage(iPoint position, SDL_Rect rect, SDL_Texture* texture, j1Module* listener, bool dragable)
+{
+	UIImage* newImage = new UIImage(position, rect, texture, ElementType::ImageElement, listener, dragable);
+	UiElement.push_back((UIElement*)newImage);
+	return newImage;
+}
