@@ -113,8 +113,8 @@ bool MoveX::Execute()
 }
 ```
 
-If you want to know more, i've done a handout with some to do's to understand better how it works. You can download it 
-### [here](https://github.com/Acaree/Cutscene-manager/releases/tag/1.0) 
+If you want to know more, i've done a handout with some to do's to understand better how it works. 
+### [Download it here](https://github.com/Acaree/Cutscene-manager/releases/tag/1.0) 
 
 
 Behind this, there are also a more extended explain for TO DO'S
