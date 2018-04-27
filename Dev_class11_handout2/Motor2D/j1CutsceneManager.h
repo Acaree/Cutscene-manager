@@ -97,7 +97,13 @@ private:
 class CutsceneDialog : public CutsceneAction
 {
 public:
-	CutsceneDialog(uint32 start_time, uint32 end_time) : CutsceneAction(start_time, end_time) {};
+	CutsceneDialog(uint32 start_time, uint32 end_time, std::string text) : CutsceneAction(start_time, end_time) {
+		//char * aux = new char[text.length() + 1];
+		//std::strcpy(aux, text.c_str());
+
+		//Background= new UIImage({ 0,0 }, { 0,0,200,40 }, nullptr, ImageElement, nullptr, false);
+		//Text = new UILabel({ 0,0 }, nullptr, { 0,0,200,40 }, LabelElement, nullptr, false);
+	};
 	~CutsceneDialog();
 
 	bool Execute();

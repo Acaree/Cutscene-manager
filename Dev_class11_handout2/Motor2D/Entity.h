@@ -13,6 +13,7 @@ enum EntityType
 {
 	PKM_TRAINER,
 	PROFESSOR_BIRCH,
+	MEW,
 
 	NO_TYPE
 };

@@ -35,6 +35,7 @@ bool j1Entities::Start()
 	
 	trainer_sprites = App->tex->Load("entities/pkm_trainer.png");
 	birch_sprites = App->tex->Load("entities/abedul_professor.png");
+	mew_sprites = App->tex->Load("entities/mew_spritesheet.png");
 
 
 	return ret;
@@ -67,6 +68,9 @@ bool j1Entities::Update(float dt)
 			break;
 		case PROFESSOR_BIRCH:
 			if (entities.at(i) != nullptr) entities[i]->Draw(birch_sprites);
+			break;
+		case MEW:
+			if (entities.at(i) != nullptr) entities[i]->Draw(mew_sprites);
 			break;
 		default:
 			break;
@@ -122,6 +126,13 @@ bool j1Entities::SpawnEntity(int x, int y, EntityType type)
 		break;
 	}
 
+	case MEW: {
+		Mew* mew = new Mew(x, y);
+		entities.push_back(mew);
+		ret = true;
+		break;
+	}
+
 	default:
 		break;
 	}
@@ -142,6 +153,9 @@ Entity* j1Entities::GetActor(int actor_code) {
 		break;
 	case PROFESSOR_BIRCH:
 		return GetBirch();
+		break;
+	case MEW:
+		return GetMew();
 		break;
 	default:
 		return nullptr;
@@ -174,6 +188,21 @@ ProfessorBirch* j1Entities::GetBirch() {
 		{
 			if (entities[i]->type == PROFESSOR_BIRCH)
 				return (ProfessorBirch*)entities[i];
+		}
+	}
+
+	return nullptr;
+
+}
+
+Mew* j1Entities::GetMew() {
+
+	for (uint i = 0; i < entities.size(); ++i)
+	{
+		if (entities.at(i) != nullptr)
+		{
+			if (entities[i]->type == MEW)
+				return (Mew*)entities[i];
 		}
 	}
 

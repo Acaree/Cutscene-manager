@@ -85,8 +85,8 @@ bool CutsceneDialog::Execute()
 	bool ret = false;
 
 	if (first_iteration) {
-		Background = App->gui->AddImage({ 0, 100 }, { 570,107,100,100 }, App->gui->GetAtlas(),nullptr,false);
-		Text = App->gui->AddLabel({ 0, 100 }, "adwsqgfqg", { 0,0,0,255 }, App->font->default,nullptr,false,0);
+		//Background = App->gui->AddImage({ 0, 100 }, { 570,107,100,100 }, App->gui->GetAtlas(),nullptr,false);
+		//Text = App->gui->AddLabel({ 0, 100 }, "adwsqgfqg", { 0,0,0,255 }, App->font->default,nullptr,false,0);
 		first_iteration = false;
 	}
 
@@ -155,7 +155,7 @@ bool j1CutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 		}
 
 		if (action == 2) {
-			CutsceneActions.push_back(new CutsceneDialog(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int()));
+			CutsceneActions.push_back(new CutsceneDialog(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("text").as_string()));
 		}
 
 		if (action == 3) {

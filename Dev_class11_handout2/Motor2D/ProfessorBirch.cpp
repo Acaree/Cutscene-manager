@@ -24,7 +24,7 @@ ProfessorBirch::ProfessorBirch(int x, int y) : Entity(x, y)
 
 	walk_left.PushBack({ 101,0,14,22 });
 	walk_left.PushBack({ 116,0,15,22 });
-	walk_right.speed = 0.15f;
+	walk_left.speed = 0.15f;
 
 	curr_animation = &walk_right;
 

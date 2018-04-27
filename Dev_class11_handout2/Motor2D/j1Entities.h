@@ -6,6 +6,7 @@
 #include "Entity.h"
 #include "PKMTrainer.h"
 #include "ProfessorBirch.h"
+#include "Mew.h"
 
 #include <vector>
 #include <string>
@@ -14,6 +15,8 @@
 
 class PKMTrainer;
 class ProfessorBirch;
+class Mew;
+
 
 struct SDL_Texture;
 
@@ -44,6 +47,7 @@ public:
 
 	PKMTrainer* GetTrainer();
 	ProfessorBirch* GetBirch();
+	Mew* GetMew();
 
 	std::vector<Entity*> entities;
 
@@ -51,6 +55,7 @@ private:
 
 	SDL_Texture* birch_sprites = nullptr;
 	SDL_Texture* trainer_sprites = nullptr;
+	SDL_Texture* mew_sprites = nullptr;
 
 public:
 	///HEROES
