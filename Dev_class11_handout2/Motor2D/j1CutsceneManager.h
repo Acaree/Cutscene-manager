@@ -3,12 +3,15 @@
 
 #include "p2Point.h"
 #include <queue>
+#include <vector>
 #include <list>
 #include "j1Module.h"
 #include "j1Timer.h"
 #include "Entity.h"
 #include "j1Gui.h"
 #include "SDL/include/SDL.h"
+
+
 
 class Entity;
 
@@ -97,12 +100,8 @@ private:
 class CutsceneDialog : public CutsceneAction
 {
 public:
-	CutsceneDialog(uint32 start_time, uint32 end_time, std::string text) : CutsceneAction(start_time, end_time) {
-		//char * aux = new char[text.length() + 1];
-		//std::strcpy(aux, text.c_str());
-
-		//Background= new UIImage({ 0,0 }, { 0,0,200,40 }, nullptr, ImageElement, nullptr, false);
-		//Text = new UILabel({ 0,0 }, nullptr, { 0,0,200,40 }, LabelElement, nullptr, false);
+	CutsceneDialog(uint32 start_time, uint32 end_time, const char* text) : CutsceneAction(start_time, end_time) {
+		this->text = text;
 	};
 	~CutsceneDialog();
 
@@ -110,6 +109,7 @@ public:
 private:
 	UIElement* Text = nullptr;
 	UIElement* Background = nullptr;
+	const char* text;
 	bool first_iteration = true;
 };
 

@@ -85,8 +85,9 @@ bool CutsceneDialog::Execute()
 	bool ret = false;
 
 	if (first_iteration) {
-		//Background = App->gui->AddImage({ 0, 100 }, { 570,107,100,100 }, App->gui->GetAtlas(),nullptr,false);
-		//Text = App->gui->AddLabel({ 0, 100 }, "adwsqgfqg", { 0,0,0,255 }, App->font->default,nullptr,false,0);
+
+		Background = App->gui->AddImage({ 0, 100 }, { 570,107,100,100 }, App->gui->GetAtlas(),nullptr,false);
+		Text = App->gui->AddLabel({ 0, 100 }, text, { 0,0,0,255 }, App->font->default,nullptr,false,0);
 		first_iteration = false;
 	}
 
@@ -99,8 +100,8 @@ bool CutsceneDialog::Execute()
 
 CutsceneDialog::~CutsceneDialog() {
 
-	//App->gui->DeleteUIElement(*Text);
-	//App->gui->DeleteUIElement(*Background);
+	Text->toDelete = true;
+	Background->toDelete = true;
 }
 
 
