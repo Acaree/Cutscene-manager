@@ -2,6 +2,10 @@
 
 I am Alex Campamar, student of the Bachelor’s Degree in Video Games by UPC at CITM. This content is generated for the second year’s subject Project 2, under supervision of lecturer Ricard Pillosu.
 
+## History of cutscenes
+
+
+
 ## What's a cutscene?
 
 Cutscenes are a non-interactive sequence in videogames. In many cases, it’s used to explain the story of the game, but it have many uses.
@@ -107,3 +111,36 @@ bool MoveX::Execute()
 ```
 
 If you want to know more, i've done a handout with some to do's to understand better how it works. You can download it [here](https://github.com/Acaree/Cutscene-manager/releases/tag/1.0) 
+
+
+Behind this, there are also a more extended explain for TO DO'S
+
+### TODO 1: 
+Here you only need to take a look the xml, where are defined all cutscene actions we'll charge
+
+### TODO 2:
+In the execute method of every Cutscene action we'll define what will do every task and return true when task is finished (end time approached)
+
+### TODO 3:
+In this function, we'll receive a cutscene enum and we just need to charge that node from xml (cutscene1 in this case)
+
+### TODO 4:
+According with the line commented in the xml, we'll push to the cutscene actions list one action or another. This is determined in cutsceneaction attribute. We'll charge the rest of atributes in the creation of the class.
+
+### TODO 5:
+In update we charge cutscene, start timer and change the executing cutscene bool. After that, in ExecuteCutscene method we'll iterate the list of cutscenes actions. We'll call to the execute of the actions wich his start time has passed and delete those actions that return true (that will happen when endtime is approached, do it in todo 2).
+
+## Useful links
+
+https://www.reddit.com/r/gamedev/comments/1x3o9o/how_should_i_go_about_adding_unique_events/
+
+https://www.youtube.com/watch?v=oOhXBcmLq2M
+
+https://www.reddit.com/r/gamedev/comments/1jjxrk/how_do_you_handle_cut_scenes_and_scripting_systems/
+
+https://en.wikipedia.org/wiki/Cutscene
+
+https://gamedev.stackexchange.com/questions/111177/why-not-pre-render-story-parts-in-a-game
+
+https://www.youtube.com/watch?v=u_VAJbQW0Ho
+
