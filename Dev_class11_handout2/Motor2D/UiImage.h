@@ -9,6 +9,9 @@ class UIImage : public UIElement
 public:
 
 	UIImage(iPoint, SDL_Rect, SDL_Texture*, ElementType, j1Module*, bool);
+
+private:
+	SDL_Texture* texture;
 };
 
 

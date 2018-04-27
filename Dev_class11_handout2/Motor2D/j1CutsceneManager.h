@@ -97,21 +97,6 @@ private:
 	float move_speed;
 };
 
-class CutsceneDialog : public CutsceneAction
-{
-public:
-	CutsceneDialog(uint32 start_time, uint32 end_time, const char* text) : CutsceneAction(start_time, end_time) {
-		this->text = text;
-	};
-	~CutsceneDialog();
-
-	bool Execute();
-private:
-	UIElement* Text = nullptr;
-	UIElement* Background = nullptr;
-	const char* text;
-	bool first_iteration = true;
-};
 
 class j1CutsceneManager : public j1Module
 {

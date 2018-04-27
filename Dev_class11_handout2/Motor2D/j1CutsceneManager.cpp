@@ -80,30 +80,6 @@ bool MoveCameraY::Execute()
 	return ret;
 }
 
-bool CutsceneDialog::Execute()
-{
-	bool ret = false;
-
-	if (first_iteration) {
-
-		Background = App->gui->AddImage({ 0, 100 }, { 570,107,100,100 }, App->gui->GetAtlas(),nullptr,false);
-		Text = App->gui->AddLabel({ 0, 100 }, text, { 0,0,0,255 }, App->font->default,nullptr,false,0);
-		first_iteration = false;
-	}
-
-	if (App->cutscene_manager->Cutscene_timer.Read() > end_time) {
-		ret = true;
-	}
-
-	return ret;
-}
-
-CutsceneDialog::~CutsceneDialog() {
-
-	Text->toDelete = true;
-	Background->toDelete = true;
-}
-
 
 bool j1CutsceneManager::Update(float dt)
 {
@@ -111,9 +87,11 @@ bool j1CutsceneManager::Update(float dt)
 	ExecuteCutscene();
 
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
-		ChargeCutscene(CUTSCENE_1);
-		Executing_Cutscene = true;
-		Cutscene_timer.Start();
+		if (CutsceneActions.size()==0) {
+			ChargeCutscene(CUTSCENE_1);
+			Executing_Cutscene = true;
+			Cutscene_timer.Start();
+		}
 	}
 
 	return true;
@@ -156,14 +134,10 @@ bool j1CutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 		}
 
 		if (action == 2) {
-			CutsceneActions.push_back(new CutsceneDialog(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("text").as_string()));
-		}
-
-		if (action == 3) {
 			CutsceneActions.push_back(new MoveCameraX(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("speed").as_float()));
 		}
 
-		if (action == 4) {
+		if (action == 3) {
 			CutsceneActions.push_back(new MoveCameraY(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("speed").as_float()));
 		}
 		cutscene_node = cutscene_node.next_sibling();

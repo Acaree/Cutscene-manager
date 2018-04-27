@@ -34,7 +34,7 @@ public:
 	iPoint localPosition = { 0,0 };
 protected:
 	UIElement* parent = nullptr;
-	//SDL_Texture* texture = nullptr;
+	SDL_Texture* texture = nullptr;
 	SDL_Rect rectUi;
 
 };

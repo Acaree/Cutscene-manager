@@ -3,17 +3,18 @@
 #include "j1Textures.h"
 #include "j1Render.h"
 #include "j1Input.h"
+#include "j1Gui.h"
 
 
 
 UIElement::UIElement(iPoint position, SDL_Rect rect, j1Module* listener, bool drag) : localPosition(position),rectUi(rect)
 {
-
+	texture = App->gui->GetAtlas();
 }
 
 UIElement::~UIElement()
 {
-	
+	App->tex->UnLoad((SDL_Texture*)texture);
 }
 
 void UIElement::Update(float dt)
@@ -28,7 +29,7 @@ void UIElement::Update(float dt)
 
 void UIElement::Draw(SDL_Texture* sprite)
 {
-	App->render->Blit(sprite, positionUi.x, positionUi.y, &rectUi, 0.0f);
+	App->render->Blit(texture, positionUi.x, positionUi.y, &rectUi, 0.0f);
 }
 
 
