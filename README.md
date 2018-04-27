@@ -12,9 +12,10 @@ We can difference cutscenes in different types:
 These cutscenes are animated and rendered independent from the game. There are videos played in the game.  Here is an example
 
 Advantages: Higher quality
+
 Disadvantages: Is too heavy and need to be charged, often with a charge screen. That's negative for the player inmersion.
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=MVbeoSPqRs4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<iframe width="854" height="480" src="https://www.youtube.com/embed/MVbeoSPqRs4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ### Real Time cutscenes
 These cutscenes are rendered with the game engine and the game graphics. It's also known as machinima.
@@ -23,14 +24,14 @@ Advantages: Breaks lees the player inmersion, because graphics don't change his 
 
 Disadvantages: Lower quality, but nowadays the game engines are enough powerful to don't have so much difference with pre rendered cutscenes
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=q0DAv34i8fQ&t=238s" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-
+<iframe width="854" height="480" src="https://www.youtube.com/embed/q0DAv34i8fQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ### Interactive cutscenes
 
 In this cutscenes, the player take the control of the character and do sequences of buttons that appears on the screen. This is also known as quick time event.
 
 Advantages: These cutscenes don't stop gameplay, the player have to do things.
+
 Disadvantages: Players are less focused in what the cutscene is explaining.
 
 
