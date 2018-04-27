@@ -12,7 +12,15 @@ bool MoveX::Execute()
 	bool ret = false;
 
 	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
-		actor->position.x += 5;
+		if (move_speed >= 0) {
+			actor->curr_animation = &actor->walk_right;
+		}
+
+		else {
+			actor->curr_animation = &actor->walk_left;
+		}
+
+		actor->position.x += move_speed;
 	}
 
 	else {
@@ -26,7 +34,16 @@ bool MoveY::Execute()
 	bool ret = false;
 
 	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
-		actor->position.y += 5;
+
+		if (move_speed >= 0) {
+			actor->curr_animation = &actor->walk_down;
+		}
+
+		else {
+			actor->curr_animation = &actor->walk_up;
+		}
+
+		actor->position.y += move_speed;
 	}
 
 	else {
@@ -40,7 +57,7 @@ bool MoveCameraX::Execute()
 	bool ret = false;
 
 	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
-		App->render->camera.x += 5;
+		App->render->camera.x += move_speed;
 	}
 
 	else {
@@ -54,7 +71,7 @@ bool MoveCameraY::Execute()
 	bool ret = false;
 
 	if (App->cutscene_manager->Cutscene_timer.Read() <= end_time) {
-		App->render->camera.y += 5;
+		App->render->camera.y += move_speed;
 	}
 
 	else {
@@ -69,7 +86,7 @@ bool CutsceneDialog::Execute()
 
 	if (first_iteration) {
 		Background = App->gui->AddImage({ 0, 100 }, { 570,107,100,100 }, App->gui->GetAtlas(),nullptr,false);
-		//Text = App->gui->AddLabel(0, 100, 15, 500, "adwsqgfqg", { 0,0,0,255 }, Background, Second_Font);
+		Text = App->gui->AddLabel({ 0, 100 }, "adwsqgfqg", { 0,0,0,255 }, App->font->default,nullptr,false,0);
 		first_iteration = false;
 	}
 
@@ -130,11 +147,11 @@ bool j1CutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 		int action = cutscene_node.attribute("cutscene_action").as_int();
 
 		if (action == 0) {
-			CutsceneActions.push_back(new MoveX(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), App->entities->GetActor(cutscene_node.attribute("actor").as_int()), cutscene_node.attribute("speed").as_int()));
+			CutsceneActions.push_back(new MoveX(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), App->entities->GetActor(cutscene_node.attribute("actor").as_int()), cutscene_node.attribute("speed").as_float()));
 		}
 
 		if (action == 1) {
-			CutsceneActions.push_back(new MoveY(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), App->entities->GetActor(cutscene_node.attribute("actor").as_int()), cutscene_node.attribute("speed").as_int()));
+			CutsceneActions.push_back(new MoveY(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), App->entities->GetActor(cutscene_node.attribute("actor").as_int()), cutscene_node.attribute("speed").as_float()));
 		}
 
 		if (action == 2) {
@@ -142,11 +159,11 @@ bool j1CutsceneManager::ChargeCutscene(Cutscene_code cutscene)
 		}
 
 		if (action == 3) {
-			//App->cutscene_manager->CutsceneActions.push_back(new MoveCameraX(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("speed").as_int()));
+			CutsceneActions.push_back(new MoveCameraX(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("speed").as_float()));
 		}
 
 		if (action == 4) {
-			CutsceneActions.push_back(new MoveCameraY(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("speed").as_int()));
+			CutsceneActions.push_back(new MoveCameraY(cutscene_node.attribute("start_time").as_int(), cutscene_node.attribute("end_time").as_int(), cutscene_node.attribute("speed").as_float()));
 		}
 		cutscene_node = cutscene_node.next_sibling();
 	}

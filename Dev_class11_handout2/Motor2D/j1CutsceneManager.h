@@ -40,58 +40,58 @@ protected:
 class MoveX : public CutsceneAction
 {
 public:
-	MoveX(uint32 start_time, uint32 end_time, Entity* actor, uint32 speed) : CutsceneAction(start_time, end_time) {
+	MoveX(uint32 start_time, uint32 end_time, Entity* actor, float speed) : CutsceneAction(start_time, end_time) {
 		this->actor = actor;
-		speed = move_speed;
+		move_speed = speed;
 	};
 	~MoveX() {};
 
 	bool Execute();
 private:
 	Entity* actor = nullptr;
-	int move_speed;
+	float move_speed;
 };
 
 class MoveY : public CutsceneAction
 {
 public:
-	MoveY(uint32 start_time, uint32 end_time, Entity* actor, uint32 speed) : CutsceneAction(start_time, end_time) {
+	MoveY(uint32 start_time, uint32 end_time, Entity* actor, float speed) : CutsceneAction(start_time, end_time) {
 		this->actor = actor;
-		speed = move_speed;
+		move_speed = speed;
 	};
 	~MoveY() {};
 
 	bool Execute();
 private:
 	Entity* actor = nullptr;
-	int move_speed;
+	float move_speed;
 };
 
 
 class MoveCameraX : public CutsceneAction
 {
 public:
-	MoveCameraX(uint32 start_time, uint32 end_time, Entity* actor, uint32 speed) : CutsceneAction(start_time, end_time) {
-		speed = move_speed;
+	MoveCameraX(uint32 start_time, uint32 end_time, float speed) : CutsceneAction(start_time, end_time) {
+		move_speed = speed;
 	};
 	~MoveCameraX() {};
 
 	bool Execute();
 private:
-	int move_speed;
+	float move_speed;
 };
 
 class MoveCameraY : public CutsceneAction
 {
 public:
-	MoveCameraY(uint32 start_time, uint32 end_time, uint32 speed) : CutsceneAction(start_time, end_time) {
-		speed = move_speed;
+	MoveCameraY(uint32 start_time, uint32 end_time, float speed) : CutsceneAction(start_time, end_time) {
+		move_speed = speed;
 	};
 	~MoveCameraY() {};
 
 	bool Execute();
 private:
-	int move_speed;
+	float move_speed;
 };
 
 class CutsceneDialog : public CutsceneAction

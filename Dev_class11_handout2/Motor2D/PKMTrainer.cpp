@@ -9,7 +9,7 @@
 PKMTrainer::PKMTrainer(int x, int y) : Entity(x, y)
 {
 
-	idle.PushBack({0,0,10,10 });
+	idle.PushBack({15,0,14,22 });
 	type = PKM_TRAINER;
 	curr_animation = &idle;
 

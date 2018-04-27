@@ -4,13 +4,16 @@
 #include "j1Module.h"
 #include "ctAnimation.h"
 #include "Entity.h"
+#include "PKMTrainer.h"
+#include "ProfessorBirch.h"
 
 #include <vector>
 #include <string>
 #include <queue>
 
 
-//class MiniHeroes;
+class PKMTrainer;
+class ProfessorBirch;
 
 struct SDL_Texture;
 
@@ -39,11 +42,14 @@ public:
 	
 	Entity* GetActor(int actor_code);
 
+	PKMTrainer* GetTrainer();
+	ProfessorBirch* GetBirch();
+
 	std::vector<Entity*> entities;
 
 private:
 
-	SDL_Texture* abedul_sprites = nullptr;
+	SDL_Texture* birch_sprites = nullptr;
 	SDL_Texture* trainer_sprites = nullptr;
 
 public:

@@ -2,24 +2,10 @@
 #include "j1Render.h"
 #include "j1Entities.h"
 #include "j1Textures.h"
-#include "Entity.h"
 #include "j1Window.h"
 
-#include "PKMTrainer.h"
 
-/*
-#include "Cleric.h"
-#include "Dwarf.h"
-#include "Elf.h"
-#include "Warrior.h"
 
-#include "Kobold.h"
-#include "Owlbear.h"
-#include "Gnoll.h"
-#include "GnollArcher.h"
-
-#include "MiniHeroes.h"
-*/
 
 j1Entities::j1Entities()
 {
@@ -31,7 +17,7 @@ j1Entities::~j1Entities()
 {
 	
 	App->tex->UnLoad(trainer_sprites);
-	App->tex->UnLoad(abedul_sprites);
+	App->tex->UnLoad(birch_sprites);
 }
 
 bool j1Entities::Awake(pugi::xml_node& config)
@@ -48,7 +34,7 @@ bool j1Entities::Start()
 
 	
 	trainer_sprites = App->tex->Load("entities/pkm_trainer.png");
-	abedul_sprites = App->tex->Load("entities/abedul_professor.png");
+	birch_sprites = App->tex->Load("entities/abedul_professor.png");
 
 
 	return ret;
@@ -79,8 +65,8 @@ bool j1Entities::Update(float dt)
 		case PKM_TRAINER:
 			if (entities.at(i) != nullptr) entities[i]->Draw(trainer_sprites);
 			break;
-		case ABEDUL_PROFESSOR:
-			if (entities.at(i) != nullptr) entities[i]->Draw(abedul_sprites);
+		case PROFESSOR_BIRCH:
+			if (entities.at(i) != nullptr) entities[i]->Draw(birch_sprites);
 			break;
 		default:
 			break;
@@ -129,6 +115,13 @@ bool j1Entities::SpawnEntity(int x, int y, EntityType type)
 		break;
 	}
 
+	case PROFESSOR_BIRCH: {
+		ProfessorBirch* birch = new ProfessorBirch(x, y);
+		entities.push_back(birch);
+		ret = true;
+		break;
+	}
+
 	default:
 		break;
 	}
@@ -145,14 +138,45 @@ Entity* j1Entities::GetActor(int actor_code) {
 
 	switch (actor_code) {
 	case PKM_TRAINER:
-		//return GetCleric();
+		return GetTrainer();
 		break;
-	case ABEDUL_PROFESSOR:
-		//return GetWarrior();
+	case PROFESSOR_BIRCH:
+		return GetBirch();
 		break;
 	default:
 		return nullptr;
 		break;
 	}
+
+}
+
+
+PKMTrainer* j1Entities::GetTrainer() {
+
+	for (uint i = 0; i < entities.size(); ++i)
+	{
+		if (entities.at(i) != nullptr)
+		{
+			if (entities[i]->type == PKM_TRAINER)
+				return (PKMTrainer*)entities[i];
+		}
+	}
+
+	return nullptr;
+
+}
+
+ProfessorBirch* j1Entities::GetBirch() {
+
+	for (uint i = 0; i < entities.size(); ++i)
+	{
+		if (entities.at(i) != nullptr)
+		{
+			if (entities[i]->type == PROFESSOR_BIRCH)
+				return (ProfessorBirch*)entities[i];
+		}
+	}
+
+	return nullptr;
 
 }

@@ -12,7 +12,7 @@ struct SDL_Texture;
 enum EntityType
 {
 	PKM_TRAINER,
-	ABEDUL_PROFESSOR,
+	PROFESSOR_BIRCH,
 
 	NO_TYPE
 };
@@ -29,6 +29,10 @@ protected:
 public:
 	fPoint position;
 	ctAnimation* curr_animation = nullptr;
+	ctAnimation walk_left;
+	ctAnimation walk_right;
+	ctAnimation walk_up;
+	ctAnimation walk_down;
 	EntityType type;
 
 	bool to_destroy = false;

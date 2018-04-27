@@ -5,10 +5,12 @@
 <cutscenes>
   <cutscene1>
 
+
+    <cutscene_action cutscene_action ="0" actor="1" start_time ="0" end_time="500" speed="2"/>
+    <cutscene_action cutscene_action ="1" actor="1" start_time ="500" end_time="1000" speed="2"/>
+    <cutscene_action cutscene_action ="0" actor="1" start_time ="1000" end_time="1500" speed="-2"/>
+    <cutscene_action cutscene_action ="1" actor="1" start_time ="1500" end_time="2000" speed="-2"/>
   
-   
-    <cutscene_action cutscene_action ="3" start_time ="1000" end_time="2000" speed="5"/>
-    <cutscene_action cutscene_action ="4" start_time ="1000" end_time="2000" speed="5"/>
     
   </cutscene1>
 </cutscenes>
