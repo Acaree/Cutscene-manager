@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+# CUTSCENE MANAGER
 
-You can use the [editor on GitHub](https://github.com/Acaree/Cutscene-manager/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+I am Alex Campamar, student of the Bachelor’s Degree in Video Games by UPC at CITM. This content is generated for the second year’s subject Project 2, under supervision of lecturer Ricard Pillosu.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## What's a cutscene?
 
-### Markdown
+Cutscenes are a non-interactive sequence in videogames. In many cases, it’s used to explain the story of the game, but it have many uses.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+We can difference cutscenes in different types:
 
-```markdown
-Syntax highlighted code block
+### Pre rendered cutscenes
+These cutscenes are animated and rendered independent from the game. There are videos played in the game.  Here is an example
 
-# Header 1
-## Header 2
-### Header 3
+Advantages: Higher quality
+Disadvantages: Is too heavy and need to be charged, often with a charge screen. That's negative for the player inmersion.
 
-- Bulleted
-- List
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=MVbeoSPqRs4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-1. Numbered
-2. List
+### Real Time cutscenes
+These cutscenes are rendered with the game engine and the game graphics. It's also known as machinima.
 
-**Bold** and _Italic_ and `Code` text
+Advantages: Breaks lees the player inmersion, because graphics don't change his quality. Also are fastest to charge and things like player weapons, armors etc adquired in the game can be showed in the cutscene.
 
-[Link](url) and ![Image](src)
-```
+Disadvantages: Lower quality, but nowadays the game engines are enough powerful to don't have so much difference with pre rendered cutscenes
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=q0DAv34i8fQ&t=238s" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Acaree/Cutscene-manager/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Interactive cutscenes
 
-### Support or Contact
+In this cutscenes, the player take the control of the character and do sequences of buttons that appears on the screen. This is also known as quick time event.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Advantages: These cutscenes don't stop gameplay, the player have to do things.
+Disadvantages: Players are less focused in what the cutscene is explaining.
+
+
