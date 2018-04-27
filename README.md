@@ -34,6 +34,8 @@ Advantages: These cutscenes don't stop gameplay, the player have to do things.
 
 Disadvantages: Players are less focused in what the cutscene is explaining.
 
+<iframe width="854" height="480" src="https://www.youtube.com/embed/nHZy_4WaYeM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ## How works my cutscene manager?
 
 My cutscene works as a time line. In a xml you can definde as cutscenes as you want, with all actions you want. Every action have a start and end time, and depending on what action is ordered, another things.
