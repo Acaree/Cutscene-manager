@@ -4,6 +4,9 @@ I am Alex Campamar, student of the Bachelor’s Degree in Video Games by UPC at 
 
 ## History of cutscenes
 
+The first cutscene of all time was realeased in pac-man. It was a very primitive version of what we can look today, but it's the begginig of what are today cutscenes. This cutscenes didn't have so much narrative importance, but tells a story. You can check it [here](https://www.youtube.com/watch?v=UGQ5sOWuzy8). The same year, space invaders also included cutscenes.
+
+But who really make cutscenes what we know nowadays is Ron Gilber, the designer of Monkey Islad 2 and many other games. He created the term cutscenes and was the first in use it in a similar way that actual games. The first game in wich Ron Gilbert used cutscenes with huge narrative important was Maniac Mansion.
 
 
 ## What's a cutscene?
@@ -110,7 +113,8 @@ bool MoveX::Execute()
 }
 ```
 
-If you want to know more, i've done a handout with some to do's to understand better how it works. You can download it [here](https://github.com/Acaree/Cutscene-manager/releases/tag/1.0) 
+If you want to know more, i've done a handout with some to do's to understand better how it works. You can download it 
+### [here](https://github.com/Acaree/Cutscene-manager/releases/tag/1.0) 
 
 
 Behind this, there are also a more extended explain for TO DO'S
